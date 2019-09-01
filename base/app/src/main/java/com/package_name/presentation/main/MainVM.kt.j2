@@ -1,0 +1,17 @@
+package {{ pkg_name }}.presentation.main
+
+import androidx.lifecycle.LiveData
+import {{ pkg_name }}.presentation.base.{{ app_name }}VM
+import com.shopify.livedataktx.SingleLiveData
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import javax.inject.Inject
+
+class MainVM() : {{ app_name }}VM() {
+
+    class Factory @Inject constructor() {
+        fun create () : MainVM {
+            return MainVM()
+        }
+    }
+}

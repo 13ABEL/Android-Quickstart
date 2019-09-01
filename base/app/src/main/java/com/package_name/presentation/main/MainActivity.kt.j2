@@ -1,0 +1,32 @@
+package {{ pkg_name }}.presentation.main
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import {{ pkg_name }}.R
+import {{ pkg_name }}.domain.model.ChatUser
+import {{ pkg_name }}.presentation.base.{{ app_name }}Activity
+import com.shopify.livedataktx.nonNull
+import com.shopify.livedataktx.observe
+import timber.log.Timber
+import javax.inject.Inject
+
+class MainActivity : {{ app_name }}Activity() {
+    @Inject lateinit var factory : MainVM.Factory
+
+    private val mainVM : MainVM by lazy {
+        ViewModelProviders.of(this, object : ViewModelProvider.Factory{
+            @Suppress("UNCHECKED_CAST")
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                return factory.create() as T
+            }
+        }).get(MainVM::class.java)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}

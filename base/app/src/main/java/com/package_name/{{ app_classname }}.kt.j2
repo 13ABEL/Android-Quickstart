@@ -1,15 +1,15 @@
-package com.chatbotutsc
+package {{ pkg_name }}
 
 import android.app.Activity
 import android.app.Application
-import com.chatbotutsc.dagger.AppInjector
+import {{ pkg_name }}.dagger.AppInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import timber.log.Timber
 import javax.inject.Inject
 
-class ChatbotApp: Application(), HasActivityInjector{
+class {{ app_classname }}: Application(), HasActivityInjector{
 
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>

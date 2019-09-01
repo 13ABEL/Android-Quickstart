@@ -1,12 +1,12 @@
-package com.chatbotutsc.dagger
+package {{ pkg_name }}.dagger
 
 import android.app.Application
 import android.content.Context
-import com.chatbotutsc.dagger.modules.ActivityModule
-import com.chatbotutsc.dagger.modules.AppModule
-import com.chatbotutsc.dagger.modules.FragmentBuildersModule
-import com.chatbotutsc.dagger.modules.RepoModule
-import com.chatbotutsc.ChatbotApp
+import {{ pkg_name }}.dagger.modules.ActivityModule
+import {{ pkg_name }}.dagger.modules.AppModule
+import {{ pkg_name }}.dagger.modules.FragBuildersModule
+import {{ pkg_name }}.dagger.modules.RepoModule
+import {{ pkg_name }}.{{ app_classname }}
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -37,5 +37,5 @@ interface AppComponent {
         fun build() : AppComponent
     }
 
-    fun inject(app : ChatbotApp)
+    fun inject(app : {{ app_classname }})
 }

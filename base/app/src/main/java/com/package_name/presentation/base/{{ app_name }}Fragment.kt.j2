@@ -1,14 +1,14 @@
-package com.chatbotutsc.presentation.base
+package {{ pkg_name }}.presentation.base
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
-import com.chatbotutsc.dagger.ChatbotInjectable
+import {{ pkg_name }}.dagger.{{ app_name }}Injectable
 import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
 
-abstract class ChatbotFragment : Fragment(), ChatbotInjectable {
+abstract class {{ app_name }}Fragment : Fragment(), {{ app_name }}Injectable {
     @Inject
     lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 

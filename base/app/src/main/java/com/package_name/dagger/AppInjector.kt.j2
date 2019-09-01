@@ -1,4 +1,4 @@
-package com.chatbotutsc.dagger
+package {{ pkg_name }}.dagger
 
 import android.app.Activity
 import android.app.Application
@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import com.chatbotutsc.ChatbotApp
+import {{ pkg_name }}.{{ app_classname }}
 import dagger.android.AndroidInjection
 import dagger.android.support.AndroidSupportInjection
 import dagger.android.support.HasSupportFragmentInjector
@@ -18,7 +18,7 @@ import dagger.android.support.HasSupportFragmentInjector
 object AppInjector {
     lateinit var appComponent : AppComponent
 
-    fun init(relic : ChatbotApp)  {
+    fun init(relic : {{ app_classname }})  {
         appComponent = DaggerAppComponent
             .builder()
             .application(relic)
@@ -32,8 +32,8 @@ object AppInjector {
     /**
      * attach callback hooks onto lifecycle
      */
-    private fun registerActivityLifeCycleCallbacks(chatbotApp : ChatbotApp) {
-        chatbotApp.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
+    private fun registerActivityLifeCycleCallbacks({{ app_classname }} : {{ app_classname }}) {
+        {{ app_classname }}.registerActivityLifecycleCallbacks(object : Application.ActivityLifecycleCallbacks {
             override fun onActivityCreated(activity: Activity?, savedInstanceState: Bundle?) {
                 activity?.let {
                     handleInjection(it)
@@ -59,7 +59,7 @@ object AppInjector {
         if (activity is FragmentActivity) {
             activity.supportFragmentManager.registerFragmentLifecycleCallbacks(object : FragmentManager.FragmentLifecycleCallbacks() {
                 override fun onFragmentCreated(fm: FragmentManager, f: Fragment, savedInstanceState: Bundle?) {
-                    if (f is ChatbotInjectable) {
+                    if (f is {{ app_name }}Injectable) {
                         AndroidSupportInjection.inject(f)
                     }
                 }

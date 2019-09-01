@@ -1,8 +1,8 @@
-package com.chatbotutsc.domain
+package {{ pkg_name }}.domain
 
 import java.lang.Exception
 
-abstract class ChatbotException(
+abstract class {{ app_name }}Exception(
     message : String,
     cause : Throwable?
 ) : Exception(message, cause)
