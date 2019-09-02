@@ -2,11 +2,11 @@ package {{ pkg_name }}.dagger
 
 import android.app.Application
 import android.content.Context
+import {{ pkg_name }}.{{ app_classname }}
 import {{ pkg_name }}.dagger.modules.ActivityModule
 import {{ pkg_name }}.dagger.modules.AppModule
 import {{ pkg_name }}.dagger.modules.FragBuildersModule
 import {{ pkg_name }}.dagger.modules.RepoModule
-import {{ pkg_name }}.{{ app_classname }}
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.support.AndroidSupportInjectionModule
@@ -18,7 +18,7 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AppModule::class,
         ActivityModule::class,
-        FragmentBuildersModule::class,
+        FragBuildersModule::class,
         RepoModule::class
     ]
 )

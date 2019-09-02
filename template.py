@@ -27,7 +27,7 @@ TEMPLATE_RE = "\{\{\s*.*\s*\}\}"
 def createProject(appName, package, path):
     # initialize template variables and their values
     templateVarMap["app_name"] = appName
-    templateVarMap["app_classname"] = appName
+    templateVarMap["app_classname"] = f"{appName}App"
     templateVarMap["pkg_name"] = package
     templateVarMap["min_sdk_ver"] = MIN_SDK
     templateVarMap["target_sdk_ver"] = TARGET_SDK

@@ -8,8 +8,8 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "{{ pkg_name }}"
-        {{ min_sdk_ver }} 24
-        {{ target_sdk_ver }} 28
+        minSdkVersion {{ min_sdk_ver }}
+        targetSdkVersion {{ target_sdk_ver }}
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -55,7 +55,6 @@ dependencies {
     def dagger_ver = "2.23"
 
     def timber_ver = "4.7.1"
-    def secureStorage_ver ="1.1.1"
     def shopify_ktx_ver = "2.0.0"
 
     def archTesting_ver = "1.1.1"
@@ -66,29 +65,17 @@ dependencies {
 
     implementation "com.jakewharton.timber:timber:$timber_ver"
 
-    // Dagger 2
-    kapt "com.google.dagger:dagger-compiler:$dagger_ver"
-    implementation "com.google.dagger:dagger:$dagger_ver"
-
     // dagger android
-    kapt "com.google.dagger:dagger-android-processor:$dagger_ver"
     implementation "com.google.dagger:dagger-android:$dagger_ver"
     implementation "com.google.dagger:dagger-android-support:$dagger_ver"
-    annotationProcessor "com.google.dagger:dagger-compiler:$dagger_ver"
 
-    implementation 'com.google.android.gms:play-services-auth:17.0.0'
-    implementation 'com.google.firebase:firebase-core:17.0.0'
-    
+    kapt "com.google.dagger:dagger-android-processor:$dagger_ver"
+    kapt "com.google.dagger:dagger-compiler:$dagger_ver"
+
     implementation "android.arch.lifecycle:extensions:$lifecycle_ver"
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
 
-    implementation "de.adorsys.android:securestoragelibrary:$secureStorage_ver"
-
-    // lib for chat views
-    implementation 'com.github.stfalcon:chatkit:0.3.3'
     implementation "com.shopify:livedata-ktx:$shopify_ktx_ver"
 }
-
-apply plugin: 'com.google.gms.google-services'
